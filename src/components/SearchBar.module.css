@@ -22,5 +22,6 @@ input::placeholder {
 }
 
 i {
-    margin-right: 1em;
+    margin: auto 1em;
+    padding: 0;
 }
