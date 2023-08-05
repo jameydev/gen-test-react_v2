@@ -1,11 +1,50 @@
 import { useState } from 'react';
 
-export default function SearchBar() {
-    const [searchTerm, setSearchTerm] = useState('');
+import styles from './SearchBar.module.css';
+
+export default function SearchBar(props) {
+    const defaultText = 'Search for ...';
+    const [placeholder, setPlaceholder] = useState(defaultText);
     
-    const updateSearchTermHandler = event => {
-        setSearchTerm(event.target.value);
+    const placeholderHandler = event => {
+        const sampleSearches = [
+            'movies',
+            'pizza',
+            'DIY tutorials',
+            'cats',
+            'dogs',
+            'books',
+            'music',
+            'video games',
+            'programming',
+            'web development',
+            'cooking',
+            'gardening',
+            'knitting',
+            'crocheting',
+            'sewing',
+            'painting',
+            'drawing',
+            'writing'
+        ];
+
+        const randomIndex = Math.floor(Math.random() * sampleSearches.length);
+        const randomSearch = sampleSearches[randomIndex];
+
+        setPlaceholder(`Search for ${randomSearch}...`);
     };
 
-    return <input type="search" onChange={updateSearchTermHandler} value={searchTerm} />;
+    return (
+        <label htmlFor="search-bar">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input 
+                name="search-bar"
+                id={styles.searchBar} 
+                type="search"
+                placeholder={placeholder}
+                onFocus={placeholderHandler}
+                onChange={props.onUpdateSearch} 
+            />
+        </label>
+    );
 }

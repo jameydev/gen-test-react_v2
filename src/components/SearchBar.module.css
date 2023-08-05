@@ -1,0 +1,26 @@
+#searchBar {
+    margin: 1.5em auto;
+    width: 25%;
+    padding: 0.5rem;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: linear-gradient(#0e0e0e, #7355a7) no-repeat, #161a2b;
+    color: #ddd;
+}
+
+input::placeholder {
+    color: #ddd;
+}
+
+#searchBar:focus {
+    outline: none;
+    border: 3px solid #98559b;
+}
+
+i {
+    margin-right: 1em;
+}
